@@ -11,7 +11,7 @@ await foreach (var update in connectivity.WatchAsync(cancellationToken)) { /* up
 
 The API reports interface presence, kind, name, and link speed. `HasNetworkInterface` does not promise public Internet, DNS, or backend reachability. A short burst of OS events may be coalesced to the latest snapshot. Disposing the async enumerator unregisters both event handlers. Android/iOS target APIs have the same shape but are not implemented by this package yet.
 
-Build locally: `dotnet build -p:DotNativeSourceRoot=../dotNative`. Interface snapshots ran on macOS, Windows 11 ARM64, and Linux ARM64 (Debian 12 container). Event watcher behavior remains unverified on all platforms.
+Build locally: `dotnet build -p:DotNativeSourceRoot=../dotNative`. Snapshots, the initial watch event, and cancellation cleanup were exercised on macOS, Windows 11 ARM64, and Linux ARM64 (Debian 12 container). Delivery after an actual network-change event remains unverified on all platforms.
 
 ## Service access
 
